@@ -1,0 +1,270 @@
+{
+  "last_node_id": 4,
+  "last_link_id": 4,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "ReActorFaceSwap",
+      "pos": [
+        656,
+        300
+      ],
+      "size": {
+        "0": 315,
+        "1": 338
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input_image",
+          "type": "IMAGE",
+          "link": 3
+        },
+        {
+          "name": "source_image",
+          "type": "IMAGE",
+          "link": 2
+        },
+        {
+          "name": "face_model",
+          "type": "FACE_MODEL",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1
+          ],
+          "shape": 3
+        },
+        {
+          "name": "FACE_MODEL",
+          "type": "FACE_MODEL",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorFaceSwap"
+      },
+      "widgets_values": [
+        true,
+        "inswapper_128.onnx",
+        "retinaface_resnet50",
+        "none",
+        1,
+        0.5,
+        "no",
+        "no",
+        "0",
+        "0",
+        1
+      ]
+    },
+    {
+      "id": 4,
+      "type": "SaveVideo [n-suite]",
+      "pos": [
+        1035,
+        43
+      ],
+      "size": [
+        315,
+        386.00000381469727
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 1,
+          "slot_index": 0
+        },
+        {
+          "name": "METADATA",
+          "type": "STRING",
+          "link": 4,
+          "widget": {
+            "name": "METADATA"
+          },
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveVideo [n-suite]"
+      },
+      "widgets_values": [
+        "",
+        false,
+        false,
+        "video",
+        2,
+        null
+      ]
+    },
+    {
+      "id": 1,
+      "type": "LoadVideo [n-suite]",
+      "pos": [
+        13,
+        35
+      ],
+      "size": [
+        210,
+        630
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGES",
+          "type": "IMAGE",
+          "links": [
+            3
+          ],
+          "shape": 6,
+          "slot_index": 0
+        },
+        {
+          "name": "EMPTY LATENTS",
+          "type": "LATENT",
+          "links": null,
+          "shape": 6
+        },
+        {
+          "name": "METADATA",
+          "type": "STRING",
+          "links": [
+            4
+          ],
+          "shape": 3
+        },
+        {
+          "name": "WIDTH",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "HEIGHT",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "META_FPS",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "META_N_FRAMES",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadVideo [n-suite]"
+      },
+      "widgets_values": [
+        "ssstwitter.com_1710270518621.mp4",
+        "/view?filename=ssstwitter.com_1710270518621.mp4&type=input&subfolder=n-suite",
+        "original",
+        "none",
+        512,
+        0,
+        0,
+        0,
+        true,
+        "image",
+        null
+      ]
+    },
+    {
+      "id": 2,
+      "type": "LoadImage",
+      "pos": [
+        282,
+        30
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "2024-02-10_20h56_43.png",
+        "image"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      3,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      2,
+      0,
+      3,
+      1,
+      "IMAGE"
+    ],
+    [
+      3,
+      1,
+      0,
+      3,
+      0,
+      "IMAGE"
+    ],
+    [
+      4,
+      1,
+      2,
+      4,
+      1,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
